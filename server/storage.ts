@@ -1,38 +1,38 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { db } from "./db";
+import { words, type Word, type InsertWord, type WordQueryParams } from "@shared/schema";
+import { eq, and, sql } from "drizzle-orm";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getRandomWord(params: WordQueryParams): Promise<Word | undefined>;
+  getAllWords(): Promise<Word[]>;
+  createWord(word: InsertWord): Promise<Word>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
+export class DatabaseStorage implements IStorage {
+  async getRandomWord(params: WordQueryParams): Promise<Word | undefined> {
+    const result = await db
+      .select()
+      .from(words)
+      .where(
+        and(
+          eq(words.language, params.language),
+          eq(words.difficulty, params.difficulty)
+        )
+      )
+      .orderBy(sql`RANDOM()`)
+      .limit(1);
+    
+    return result[0];
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getAllWords(): Promise<Word[]> {
+    return await db.select().from(words);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createWord(insertWord: InsertWord): Promise<Word> {
+    const [word] = await db.insert(words).values(insertWord).returning();
+    return word;
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
