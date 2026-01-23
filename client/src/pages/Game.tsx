@@ -86,31 +86,31 @@ export default function Game() {
 
   return (
     <SceneBackground themeId={theme}>
-      <div className="min-h-screen flex flex-col items-center relative p-4 overflow-y-auto">
+      <div className="h-screen w-full flex flex-col items-center relative p-2 overflow-hidden">
         
         {/* Header */}
-        <header className="w-full max-w-5xl flex justify-between items-center z-10 mb-4">
-          <Link href="/" className="inline-flex items-center gap-2 text-white font-bold bg-black/20 hover:bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm transition-colors">
-            <ArrowLeft className="w-5 h-5" /> Exit
+        <header className="w-full max-w-6xl flex justify-between items-center z-10 mb-2 shrink-0">
+          <Link href="/" className="inline-flex items-center gap-2 text-white font-bold bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm transition-colors text-sm">
+            <ArrowLeft className="w-4 h-4" /> Exit
           </Link>
-          <div className="flex gap-4">
-             <div className="px-4 py-2 bg-white/90 backdrop-blur rounded-full font-bold shadow-sm text-primary">
+          <div className="flex gap-2">
+             <div className="px-3 py-1.5 bg-white/90 backdrop-blur rounded-full font-bold shadow-sm text-primary text-sm">
                Lives: {MAX_LIVES - livesLost}
              </div>
-             <div className="px-4 py-2 bg-white/90 backdrop-blur rounded-full font-bold shadow-sm text-slate-700 capitalize">
+             <div className="px-3 py-1.5 bg-white/90 backdrop-blur rounded-full font-bold shadow-sm text-slate-700 capitalize text-sm">
                {diff} Mode
              </div>
           </div>
         </header>
 
         {/* Main Game Area */}
-        <div className="flex flex-col lg:flex-row gap-4 items-start justify-between w-full max-w-7xl flex-1 px-4">
+        <div className="flex flex-row items-start justify-between w-full max-w-7xl flex-1 px-4 relative min-h-0">
           
           {/* Left: Gallows Area */}
-          <div className="relative flex-shrink-0 z-10 scale-90 lg:scale-100">
+          <div className="relative flex-shrink-0 z-10">
             <div className="relative">
                <Gallows />
-               <div className="absolute top-[22px] left-[144px] w-0 h-0"> {/* Anchor point for character (adjusted for smaller gallows) */}
+               <div className="absolute top-[22px] left-[144px] w-0 h-0">
                  <HangmanCharacter 
                    livesLost={livesLost} 
                    maxLives={MAX_LIVES}
@@ -121,16 +121,16 @@ export default function Game() {
           </div>
 
           {/* Right: Clue Card & Word */}
-          <div className="flex flex-col items-center w-full max-w-md z-10 lg:mt-4">
+          <div className="flex flex-col items-center w-full max-w-sm z-10 pt-2 shrink-0">
             
             {/* Clue Card */}
             <motion.div 
               initial={{ rotate: 1, scale: 0.9 }}
               animate={{ rotate: 0, scale: 1 }}
-              className="w-full paper-texture p-4 rounded-sm shadow-[2px_2px_10px_rgba(0,0,0,0.1)] border border-slate-200 transform rotate-1 mb-4"
+              className="w-full paper-texture p-3 rounded-sm shadow-[2px_2px_10px_rgba(0,0,0,0.1)] border border-slate-200 transform rotate-1 mb-4"
             >
               <div className="flex flex-col items-center gap-2">
-                <div className="w-full aspect-video max-h-40 bg-slate-100 rounded-sm overflow-hidden border-2 border-white shadow-inner relative group">
+                <div className="w-full aspect-video max-h-32 bg-slate-100 rounded-sm overflow-hidden border-2 border-white shadow-inner relative group">
                   <img 
                     src={wordData.imageUrl} 
                     alt="Clue" 
@@ -141,8 +141,8 @@ export default function Game() {
                 
                 <div className="text-center">
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Translation Clue</span>
-                  <h2 className="text-xl font-display font-bold text-slate-800 mt-0.5">{wordData.translation}</h2>
-                  <span className="inline-block mt-1 px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-[10px] font-bold uppercase tracking-wide">
+                  <h2 className="text-lg font-display font-bold text-slate-800 leading-tight">{wordData.translation}</h2>
+                  <span className="inline-block mt-0.5 px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-[10px] font-bold uppercase tracking-wide">
                     {wordData.category}
                   </span>
                 </div>
@@ -150,21 +150,25 @@ export default function Game() {
             </motion.div>
 
             {/* Word Display */}
-            <WordDisplay 
-              word={wordData.text} 
-              guessedLetters={guessedLetters} 
-              revealed={gameStatus !== "playing"} 
-            />
+            <div className="scale-90 origin-top">
+              <WordDisplay 
+                word={wordData.text} 
+                guessedLetters={guessedLetters} 
+                revealed={gameStatus !== "playing"} 
+              />
+            </div>
           </div>
         </div>
 
         {/* Bottom: Keyboard */}
-        <div className="w-full z-20 pb-8 mt-auto">
-          <Keyboard 
-            onGuess={handleGuess} 
-            guessedLetters={guessedLetters} 
-            disabled={gameStatus !== "playing"} 
-          />
+        <div className="w-full max-w-4xl z-20 pb-4 mt-auto shrink-0 px-4">
+          <div className="scale-90 lg:scale-100 origin-bottom">
+            <Keyboard 
+              onGuess={handleGuess} 
+              guessedLetters={guessedLetters} 
+              disabled={gameStatus !== "playing"} 
+            />
+          </div>
         </div>
 
         {/* Game Over Modal */}

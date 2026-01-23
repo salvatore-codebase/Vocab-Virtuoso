@@ -11,7 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Brain, Languages, Play } from "lucide-react";
 
 export default function Home() {
-  const [language, setLanguage] = useState<"en" | "it">("it");
+  const [language, setLanguage] = useState<"en" | "it">("en");
   const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">("medium");
   const [theme, setTheme] = useState<ThemeId>("beach");
   const [location, setLocation] = useLocation();
@@ -54,19 +54,6 @@ export default function Home() {
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <button
-                    onClick={() => setLanguage("it")}
-                    className={`
-                      p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2
-                      ${language === "it" 
-                        ? 'border-primary bg-primary/10 text-primary' 
-                        : 'border-slate-100 hover:border-slate-200 text-slate-500'
-                      }
-                    `}
-                  >
-                    <span className="text-3xl">🇮🇹</span>
-                    <span className="font-bold">Italian</span>
-                  </button>
-                  <button
                     onClick={() => setLanguage("en")}
                     className={`
                       p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2
@@ -78,6 +65,19 @@ export default function Home() {
                   >
                     <span className="text-3xl">🇬🇧</span>
                     <span className="font-bold">English</span>
+                  </button>
+                  <button
+                    onClick={() => setLanguage("it")}
+                    className={`
+                      p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2
+                      ${language === "it" 
+                        ? 'border-primary bg-primary/10 text-primary' 
+                        : 'border-slate-100 hover:border-slate-200 text-slate-500'
+                      }
+                    `}
+                  >
+                    <span className="text-3xl">🇮🇹</span>
+                    <span className="font-bold">Italian</span>
                   </button>
                 </div>
               </div>
