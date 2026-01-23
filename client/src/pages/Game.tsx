@@ -104,13 +104,13 @@ export default function Game() {
         </header>
 
         {/* Main Game Area */}
-        <div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full max-w-6xl flex-1">
+        <div className="flex flex-col lg:flex-row gap-4 items-start justify-between w-full max-w-7xl flex-1 px-4">
           
           {/* Left: Gallows Area */}
-          <div className="relative flex-shrink-0 z-10">
+          <div className="relative flex-shrink-0 z-10 scale-90 lg:scale-100">
             <div className="relative">
                <Gallows />
-               <div className="absolute top-[32px] left-[192px] w-0 h-0"> {/* Anchor point for character */}
+               <div className="absolute top-[22px] left-[144px] w-0 h-0"> {/* Anchor point for character (adjusted for smaller gallows) */}
                  <HangmanCharacter 
                    livesLost={livesLost} 
                    maxLives={MAX_LIVES}
@@ -121,16 +121,16 @@ export default function Game() {
           </div>
 
           {/* Right: Clue Card & Word */}
-          <div className="flex flex-col items-center w-full max-w-lg z-10">
+          <div className="flex flex-col items-center w-full max-w-md z-10 lg:mt-4">
             
             {/* Clue Card */}
             <motion.div 
               initial={{ rotate: 1, scale: 0.9 }}
               animate={{ rotate: 0, scale: 1 }}
-              className="w-full paper-texture p-6 rounded-sm shadow-[2px_2px_10px_rgba(0,0,0,0.1)] border border-slate-200 transform rotate-1 mb-8"
+              className="w-full paper-texture p-4 rounded-sm shadow-[2px_2px_10px_rgba(0,0,0,0.1)] border border-slate-200 transform rotate-1 mb-4"
             >
-              <div className="flex flex-col items-center gap-4">
-                <div className="w-full aspect-video bg-slate-100 rounded-sm overflow-hidden border-4 border-white shadow-inner relative group">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-full aspect-video max-h-40 bg-slate-100 rounded-sm overflow-hidden border-2 border-white shadow-inner relative group">
                   <img 
                     src={wordData.imageUrl} 
                     alt="Clue" 
@@ -140,9 +140,9 @@ export default function Game() {
                 </div>
                 
                 <div className="text-center">
-                  <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">Translation Clue</span>
-                  <h2 className="text-3xl font-display font-bold text-slate-800 mt-1">{wordData.translation}</h2>
-                  <span className="inline-block mt-2 px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold uppercase tracking-wide">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Translation Clue</span>
+                  <h2 className="text-xl font-display font-bold text-slate-800 mt-0.5">{wordData.translation}</h2>
+                  <span className="inline-block mt-1 px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-[10px] font-bold uppercase tracking-wide">
                     {wordData.category}
                   </span>
                 </div>

@@ -64,33 +64,33 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
   const parts = getVisibleParts();
 
   return (
-    <div className="relative w-full h-full animate-sway origin-top" style={{ transformOrigin: "50% -20px" }}>
+    <div className="relative w-full h-full animate-sway origin-top scale-75" style={{ transformOrigin: "50% -15px" }}>
       <AnimatePresence>
         {/* HEAD */}
         {parts.head && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 bg-skin-300 rounded-full border-4 border-slate-800 z-20 shadow-sm flex items-center justify-center bg-[#f5d0b0]"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 bg-skin-300 rounded-full border-[3px] border-slate-800 z-20 shadow-sm flex items-center justify-center bg-[#f5d0b0]"
           >
             {/* Face */}
-            <div className="flex gap-2 mb-1">
-              <div className="w-2 h-2 rounded-full bg-slate-800" />
-              <div className="w-2 h-2 rounded-full bg-slate-800" />
+            <div className="flex gap-1.5 mb-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-slate-800" />
+              <div className="w-1.5 h-1.5 rounded-full bg-slate-800" />
             </div>
-            <div className="absolute bottom-3 w-4 h-1 bg-slate-800 rounded-full opacity-60" />
+            <div className="absolute bottom-2 w-3 h-0.5 bg-slate-800 rounded-full opacity-60" />
           </motion.div>
         )}
 
         {/* HAT (Accessory 1) */}
         {parts.hat && (
           <motion.div
-            initial={{ y: -50, opacity: 0 }}
+            initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="absolute -top-6 left-1/2 -translate-x-1/2 z-30"
+            className="absolute -top-4 left-1/2 -translate-x-1/2 z-30"
           >
-             <div className="w-24 h-4 bg-slate-800 rounded-full" />
-             <div className="w-14 h-10 bg-slate-800 -mt-2 mx-auto rounded-t-lg" />
+             <div className="w-16 h-3 bg-slate-800 rounded-full" />
+             <div className="w-10 h-7 bg-slate-800 -mt-1.5 mx-auto rounded-t-lg" />
           </motion.div>
         )}
 
@@ -99,10 +99,10 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="absolute top-12 left-1/2 -translate-x-1/2 z-20 w-16 h-8"
+            className="absolute top-9 left-1/2 -translate-x-1/2 z-20 w-12 h-6"
           >
-            <div className="w-full h-4 bg-red-500 rounded-full absolute top-0" />
-            <div className="w-4 h-10 bg-red-500 rounded-b-md absolute right-2 top-2 rotate-12" />
+            <div className="w-full h-3 bg-red-500 rounded-full absolute top-0" />
+            <div className="w-3 h-8 bg-red-500 rounded-b-md absolute right-1.5 top-1.5 rotate-12" />
           </motion.div>
         )}
 
@@ -110,8 +110,8 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
         {parts.body && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 80, opacity: 1 }}
-            className="absolute top-14 left-1/2 -translate-x-1/2 w-12 bg-blue-500 border-4 border-slate-800 rounded-b-xl z-10"
+            animate={{ height: 60, opacity: 1 }}
+            className="absolute top-11 left-1/2 -translate-x-1/2 w-9 bg-blue-500 border-[3px] border-slate-800 rounded-b-xl z-10"
           />
         )}
 
@@ -120,7 +120,7 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
           <motion.div
             initial={{ rotate: -90, opacity: 0 }}
             animate={{ rotate: 30, opacity: 1 }}
-            className="absolute top-16 left-2 w-12 h-4 bg-[#f5d0b0] border-4 border-slate-800 rounded-full origin-right -z-10"
+            className="absolute top-13 left-1 w-9 h-3 bg-[#f5d0b0] border-[3px] border-slate-800 rounded-full origin-right -z-10"
           />
         )}
 
@@ -129,7 +129,7 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
           <motion.div
             initial={{ rotate: 90, opacity: 0 }}
             animate={{ rotate: -30, opacity: 1 }}
-            className="absolute top-16 right-2 w-12 h-4 bg-[#f5d0b0] border-4 border-slate-800 rounded-full origin-left -z-10"
+            className="absolute top-13 right-1 w-9 h-3 bg-[#f5d0b0] border-[3px] border-slate-800 rounded-full origin-left -z-10"
           />
         )}
 
@@ -137,8 +137,8 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
         {parts.lLeg && (
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: 60 }}
-            className="absolute top-[130px] left-[calc(50%-1.5rem)] w-4 bg-slate-700 border-x-4 border-b-4 border-slate-800 rounded-b-full origin-top -rotate-12"
+            animate={{ height: 45 }}
+            className="absolute top-[100px] left-[calc(50%-1.1rem)] w-3 bg-slate-700 border-x-[3px] border-b-[3px] border-slate-800 rounded-b-full origin-top -rotate-12"
           />
         )}
 
@@ -146,8 +146,8 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
         {parts.rLeg && (
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: 60 }}
-            className="absolute top-[130px] right-[calc(50%-1.5rem)] w-4 bg-slate-700 border-x-4 border-b-4 border-slate-800 rounded-b-full origin-top rotate-12"
+            animate={{ height: 45 }}
+            className="absolute top-[100px] right-[calc(50%-1.1rem)] w-3 bg-slate-700 border-x-[3px] border-b-[3px] border-slate-800 rounded-b-full origin-top rotate-12"
           />
         )}
       </AnimatePresence>
