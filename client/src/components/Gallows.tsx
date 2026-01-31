@@ -99,18 +99,35 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
           </div>
         </div>
         
-        {/* Noose Loop */}
-        <div 
-          className="absolute top-[52px] left-1/2 -translate-x-1/2 w-10 h-5 rounded-b-full border-4"
-          style={{
-            borderColor: "#B8922F",
-            borderTop: "none",
-            boxShadow: "inset 1px 1px 2px rgba(255,255,255,0.2), 1px 1px 3px rgba(0,0,0,0.3)"
-          }}
-        />
+        {/* Double Knot at bottom of rope */}
+        <div className="absolute top-[50px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+          {/* Upper knot */}
+          <div 
+            className="w-5 h-4 rounded-full"
+            style={{
+              background: "radial-gradient(ellipse at 40% 40%, #D4A84B 0%, #B8922F 50%, #8B6914 100%)",
+              boxShadow: "inset 1px 1px 2px rgba(255,255,255,0.3), inset -1px -1px 2px rgba(0,0,0,0.3), 1px 2px 3px rgba(0,0,0,0.4)"
+            }}
+          />
+          {/* Lower knot */}
+          <div 
+            className="w-6 h-5 rounded-full -mt-1"
+            style={{
+              background: "radial-gradient(ellipse at 40% 40%, #D4A84B 0%, #B8922F 50%, #8B6914 100%)",
+              boxShadow: "inset 1px 1px 2px rgba(255,255,255,0.3), inset -1px -1px 2px rgba(0,0,0,0.3), 1px 2px 3px rgba(0,0,0,0.4)"
+            }}
+          />
+          {/* Small rope tail hanging from knot */}
+          <div 
+            className="w-2 h-3 -mt-0.5 rounded-b-sm"
+            style={{
+              background: "linear-gradient(90deg, #8B6914 0%, #C4983B 50%, #8B6914 100%)",
+            }}
+          />
+        </div>
         
-        {/* HANGMAN CHARACTER - anchored directly to rope */}
-        <div className="absolute top-[56px] left-1/2 -translate-x-1/2">
+        {/* HANGMAN CHARACTER - raised so upper back is at bottom of rope/knots */}
+        <div className="absolute top-[38px] left-1/2 -translate-x-1/2">
           <HangmanCharacter 
             livesLost={livesLost}
             maxLives={maxLives}
