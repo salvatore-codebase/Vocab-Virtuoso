@@ -287,89 +287,125 @@ function ForestScene() {
         </div>
         <div className="w-1.5 h-2 bg-amber-50 mx-auto" />
       </div>
+      
+      {/* Walking Bear */}
+      <div className="absolute bottom-20 animate-bear">
+        <div className="relative w-20 h-14">
+          {/* Body */}
+          <div className="absolute bottom-2 left-3 w-12 h-8 bg-amber-800 rounded-full" />
+          {/* Head */}
+          <div className="absolute bottom-4 right-0 w-8 h-7 bg-amber-700 rounded-full">
+            {/* Ears */}
+            <div className="absolute -top-1 left-1 w-2 h-2 bg-amber-800 rounded-full" />
+            <div className="absolute -top-1 right-1 w-2 h-2 bg-amber-800 rounded-full" />
+            {/* Snout */}
+            <div className="absolute bottom-1 right-0 w-4 h-3 bg-amber-600 rounded-full" />
+            {/* Eye */}
+            <div className="absolute top-2 right-2 w-1 h-1 bg-black rounded-full" />
+            {/* Nose */}
+            <div className="absolute bottom-2 right-0.5 w-1.5 h-1 bg-black rounded-full" />
+          </div>
+          {/* Legs */}
+          <div className="absolute bottom-0 left-4 w-2 h-4 bg-amber-900 rounded-b-md" />
+          <div className="absolute bottom-0 left-8 w-2 h-4 bg-amber-900 rounded-b-md" />
+          <div className="absolute bottom-0 right-4 w-2 h-3 bg-amber-900 rounded-b-md" />
+          <div className="absolute bottom-0 right-7 w-2 h-3 bg-amber-900 rounded-b-md" />
+          {/* Tail */}
+          <div className="absolute bottom-5 left-1 w-2 h-2 bg-amber-800 rounded-full" />
+        </div>
+      </div>
     </>
   );
 }
 
-function WildWestScene() {
-  const dustParticles = useMemo(() =>
-    Array.from({ length: 8 }).map((_, i) => ({
-      top: 40 + seededRandom(i * 15) * 30,
+function EgyptScene() {
+  const sandParticles = useMemo(() =>
+    Array.from({ length: 15 }).map((_, i) => ({
+      top: 30 + seededRandom(i * 15) * 40,
       left: seededRandom(i * 25) * 100,
       delay: seededRandom(i * 35) * 5,
+      size: 1 + seededRandom(i * 45) * 2,
     })), []);
 
   return (
     <>
-      {/* Dusty sun */}
-      <div className="absolute top-8 right-20 w-20 h-20 bg-orange-300 rounded-full blur-md opacity-80" />
+      {/* Blazing sun */}
+      <div className="absolute top-6 right-16 w-24 h-24 bg-yellow-400 rounded-full shadow-[0_0_80px_rgba(253,224,71,0.8)]" />
       
-      {/* Desert ground */}
-      <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-amber-600 to-amber-400" />
+      {/* Desert sand ground */}
+      <div className="absolute bottom-0 w-full h-28 bg-gradient-to-t from-amber-500 to-yellow-300" />
       
-      {/* Distant mountains */}
-      <div className="absolute bottom-24 left-0 w-full">
-        <div className="absolute bottom-0 left-[10%] w-0 h-0 border-l-[60px] border-r-[60px] border-b-[40px] border-transparent border-b-amber-700/60" />
-        <div className="absolute bottom-0 left-[30%] w-0 h-0 border-l-[80px] border-r-[80px] border-b-[50px] border-transparent border-b-amber-800/50" />
-        <div className="absolute bottom-0 right-[20%] w-0 h-0 border-l-[70px] border-r-[70px] border-b-[45px] border-transparent border-b-amber-700/55" />
+      {/* Sand dunes */}
+      <div className="absolute bottom-20 left-0 w-48 h-16 bg-amber-400 rounded-t-full" />
+      <div className="absolute bottom-16 left-32 w-56 h-20 bg-yellow-400/80 rounded-t-full" />
+      <div className="absolute bottom-18 right-0 w-44 h-14 bg-amber-400 rounded-t-full" />
+      
+      {/* Great Pyramid */}
+      <div className="absolute bottom-28 left-[15%]">
+        <div className="w-0 h-0 border-l-[60px] border-r-[60px] border-b-[80px] border-transparent border-b-amber-600" />
+        <div className="absolute top-[20px] left-[-20px] w-0 h-0 border-l-[20px] border-r-[20px] border-b-[60px] border-transparent border-b-amber-700/50" />
       </div>
       
-      {/* Saloon building */}
-      <div className="absolute bottom-24 left-[15%]">
-        <div className="w-28 h-20 bg-amber-800 relative">
-          <div className="absolute -top-6 left-0 w-full h-8 bg-amber-900 border-t-4 border-amber-950" />
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 text-[8px] text-amber-200 font-bold">SALOON</div>
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-12 bg-amber-950 rounded-t-md" />
-          <div className="absolute top-6 left-2 w-4 h-5 bg-amber-300/40" />
-          <div className="absolute top-6 right-2 w-4 h-5 bg-amber-300/40" />
+      {/* Medium Pyramid */}
+      <div className="absolute bottom-28 left-[35%]">
+        <div className="w-0 h-0 border-l-[45px] border-r-[45px] border-b-[60px] border-transparent border-b-amber-500" />
+      </div>
+      
+      {/* Small Pyramid */}
+      <div className="absolute bottom-28 left-[50%]">
+        <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-amber-600/80" />
+      </div>
+      
+      {/* Sphinx */}
+      <div className="absolute bottom-28 right-[20%]">
+        {/* Body */}
+        <div className="w-20 h-8 bg-amber-600 rounded-r-lg relative">
+          {/* Head */}
+          <div className="absolute -top-6 -left-2 w-8 h-10 bg-amber-500 rounded-t-lg">
+            {/* Headdress */}
+            <div className="absolute -top-2 left-0 w-8 h-4 bg-amber-700 rounded-t-md" />
+            {/* Face */}
+            <div className="absolute top-4 left-2 w-1 h-1 bg-amber-900 rounded-full" />
+            <div className="absolute top-4 right-2 w-1 h-1 bg-amber-900 rounded-full" />
+          </div>
+          {/* Front paws */}
+          <div className="absolute bottom-0 left-6 w-12 h-2 bg-amber-700 rounded-r-full" />
         </div>
       </div>
       
-      {/* Water tower */}
-      <div className="absolute bottom-24 right-[20%]">
-        <div className="w-3 h-16 bg-amber-800 mx-auto" />
-        <div className="w-12 h-10 bg-amber-700 rounded-md -mt-1 relative">
-          <div className="absolute top-1 left-1 w-10 h-1 bg-amber-900" />
-          <div className="absolute top-3 left-1 w-10 h-1 bg-amber-900" />
-          <div className="absolute top-5 left-1 w-10 h-1 bg-amber-900" />
-        </div>
+      {/* Palm tree oasis */}
+      <div className="absolute bottom-28 right-[8%]">
+        <div className="w-3 h-16 bg-gradient-to-r from-amber-800 to-amber-700 rounded-sm" />
+        <div className="absolute -top-6 -left-5 w-14 h-6 bg-green-600 rounded-full rotate-[-20deg]" />
+        <div className="absolute -top-4 left-0 w-12 h-5 bg-green-500 rounded-full rotate-[15deg]" />
+        <div className="absolute -top-7 -right-3 w-10 h-5 bg-green-700 rounded-full rotate-[35deg]" />
       </div>
       
-      {/* Cacti */}
-      <div className="absolute bottom-24 left-[50%]">
-        <div className="w-4 h-12 bg-green-700 rounded-t-full relative">
-          <div className="absolute top-2 -left-3 w-3 h-6 bg-green-600 rounded-t-full rounded-bl-full" />
-          <div className="absolute top-4 -right-3 w-3 h-5 bg-green-600 rounded-t-full rounded-br-full" />
-        </div>
-      </div>
-      <div className="absolute bottom-24 right-[40%]">
-        <div className="w-3 h-8 bg-green-600 rounded-t-full" />
-      </div>
+      {/* Sandstorm wind effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-300/25 to-transparent animate-sandstorm" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-200/20 to-transparent animate-sandstorm" style={{ animationDelay: '3s' }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-200/15 to-transparent animate-sandstorm" style={{ animationDelay: '6s' }} />
       
-      {/* Tumbleweeds */}
-      <div className="absolute bottom-28 animate-tumbleweed" style={{ animationDelay: '0s' }}>
-        <div className="w-8 h-8 rounded-full border-4 border-amber-700 opacity-70" />
-      </div>
-      <div className="absolute bottom-32 animate-tumbleweed" style={{ animationDelay: '5s' }}>
-        <div className="w-6 h-6 rounded-full border-[3px] border-amber-600 opacity-60" />
-      </div>
-      
-      {/* Sandstorm dust */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent animate-sandstorm" />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-300/15 to-transparent animate-sandstorm" style={{ animationDelay: '4s' }} />
-      
-      {/* Dust particles */}
-      {dustParticles.map((dp, i) => (
+      {/* Blowing sand particles */}
+      {sandParticles.map((sp, i) => (
         <div
           key={i}
-          className="absolute w-1 h-1 bg-amber-300/50 rounded-full animate-drift-medium"
+          className="absolute bg-amber-200/60 rounded-full animate-drift-medium"
           style={{
-            top: `${dp.top}%`,
-            left: `${dp.left}%`,
-            animationDelay: `${dp.delay}s`,
+            top: `${sp.top}%`,
+            left: `${sp.left}%`,
+            width: `${sp.size}px`,
+            height: `${sp.size}px`,
+            animationDelay: `${sp.delay}s`,
           }}
         />
       ))}
+      
+      {/* Hieroglyphic decorative elements (distant) */}
+      <div className="absolute bottom-32 left-[70%] opacity-30">
+        <div className="w-1 h-6 bg-amber-800" />
+        <div className="w-3 h-1 bg-amber-800 -mt-3 ml-1" />
+      </div>
     </>
   );
 }
@@ -539,7 +575,7 @@ export function SceneBackground({ themeId, children }: SceneBackgroundProps) {
         {themeId === 'city' && <CityScene />}
         {themeId === 'beach' && <BeachScene />}
         {themeId === 'forest' && <ForestScene />}
-        {themeId === 'wild-west' && <WildWestScene />}
+        {themeId === 'egypt' && <EgyptScene />}
         {themeId === 'snow' && <SnowScene />}
         {themeId === 'space' && <SpaceScene />}
       </div>

@@ -24,7 +24,7 @@ export const BACKGROUNDS = [
   { id: 'city', name: 'Busy City', gradient: 'from-blue-200 via-purple-200 to-pink-200' },
   { id: 'beach', name: 'Sunny Beach', gradient: 'from-cyan-300 via-blue-200 to-yellow-100' },
   { id: 'forest', name: 'Enchanted Forest', gradient: 'from-green-800 via-green-600 to-emerald-400' },
-  { id: 'wild-west', name: 'Wild West', gradient: 'from-orange-200 via-amber-200 to-yellow-100' },
+  { id: 'egypt', name: 'Egyptian Desert', gradient: 'from-orange-200 via-amber-200 to-yellow-100' },
   { id: 'snow', name: 'Winter Wonderland', gradient: 'from-slate-200 via-blue-100 to-white' },
   { id: 'space', name: 'Outer Space', gradient: 'from-indigo-950 via-purple-900 to-slate-900' },
 ] as const;
