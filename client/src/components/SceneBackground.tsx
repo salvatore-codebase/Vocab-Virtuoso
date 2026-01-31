@@ -421,33 +421,64 @@ function EgyptScene() {
         <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-amber-600/80" />
       </div>
       
-      {/* Sphinx - simplified silhouette */}
-      <div className="absolute bottom-28 right-[15%]">
-        <div className="relative" style={{ width: '80px', height: '50px' }}>
-          {/* Laying lion body */}
-          <div className="absolute bottom-0 bg-amber-600 rounded-lg" style={{ left: '0', width: '50px', height: '16px' }} />
-          {/* Back curve */}
-          <div className="absolute bottom-3 left-0 bg-amber-600 rounded-full" style={{ width: '16px', height: '20px' }} />
-          {/* Upright chest/torso */}
-          <div className="absolute bottom-0 bg-amber-500 rounded-t-lg" style={{ left: '32px', width: '20px', height: '28px' }} />
+      {/* Sphinx - facing left (mirrored with CSS) */}
+      <div className="absolute bottom-28 right-[10%]" style={{ transform: 'scaleX(-1)' }}>
+        <div className="relative" style={{ width: '90px', height: '55px' }}>
+          {/* Back haunches */}
+          <div className="absolute bottom-0 left-0 bg-amber-700 rounded-t-full" style={{ width: '20px', height: '24px' }} />
+          {/* Tail curled up */}
+          <div className="absolute bg-amber-700 rounded-full" style={{ bottom: '18px', left: '-6px', width: '10px', height: '6px' }} />
+          {/* Main body - laying down */}
+          <div className="absolute bottom-0 bg-amber-600 rounded-t-lg" style={{ left: '15px', width: '40px', height: '18px' }} />
+          {/* Chest - upright */}
+          <div className="absolute bottom-0 bg-gradient-to-r from-amber-600 to-amber-500" style={{ left: '50px', width: '24px', height: '34px', borderRadius: '10px 10px 0 0' }} />
+          {/* Front legs */}
+          <div className="absolute bottom-0 bg-amber-600" style={{ left: '65px', width: '10px', height: '20px', borderRadius: '4px 4px 0 0' }} />
           {/* Extended front paws */}
-          <div className="absolute bottom-0 bg-amber-700 rounded-sm" style={{ left: '42px', width: '30px', height: '6px' }} />
+          <div className="absolute bottom-0 bg-amber-700 rounded-r-md" style={{ left: '70px', width: '20px', height: '8px' }} />
+          
+          {/* Neck */}
+          <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ bottom: '30px', left: '55px', width: '16px', height: '14px', borderRadius: '6px 6px 0 0' }} />
+          
           {/* Head */}
-          <div className="absolute bg-amber-500 rounded-t-lg" style={{ bottom: '26px', left: '35px', width: '16px', height: '18px' }}>
-            {/* Headdress flaps */}
-            <div className="absolute bg-amber-700 rounded-b-sm" style={{ top: '6px', left: '-4px', width: '6px', height: '14px' }} />
-            <div className="absolute bg-amber-700 rounded-b-sm" style={{ top: '6px', right: '-4px', width: '6px', height: '14px' }} />
-            {/* Face */}
-            <div className="absolute bg-amber-800 rounded-full" style={{ top: '8px', left: '4px', width: '2px', height: '2px' }} />
-            <div className="absolute bg-amber-800 rounded-full" style={{ top: '8px', right: '4px', width: '2px', height: '2px' }} />
+          <div className="absolute bg-gradient-to-r from-amber-500 to-amber-400" style={{ bottom: '40px', left: '60px', width: '24px', height: '18px', borderRadius: '8px 12px 6px 6px' }}>
+            {/* Nemes headdress sides */}
+            <div className="absolute bg-amber-700" style={{ top: '6px', left: '-3px', width: '6px', height: '18px', borderRadius: '3px' }} />
+            <div className="absolute bg-amber-700" style={{ top: '6px', right: '-3px', width: '6px', height: '18px', borderRadius: '3px' }} />
+            {/* Headdress top */}
+            <div className="absolute bg-amber-600" style={{ top: '-5px', left: '4px', width: '16px', height: '10px', borderRadius: '8px 8px 0 0' }} />
+            {/* Eye */}
+            <div className="absolute bg-amber-900 rounded-full" style={{ top: '7px', right: '5px', width: '3px', height: '3px' }} />
+            {/* Nose - pointing right (will appear left when mirrored) */}
+            <div className="absolute bg-amber-700" style={{ top: '10px', right: '-2px', width: '5px', height: '4px', borderRadius: '0 3px 3px 0' }} />
           </div>
         </div>
       </div>
       
-      {/* Sandstorm wind effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-300/25 to-transparent animate-sandstorm" />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-200/20 to-transparent animate-sandstorm" style={{ animationDelay: '3s' }} />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-200/15 to-transparent animate-sandstorm" style={{ animationDelay: '6s' }} />
+      {/* Intense Sandstorm */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Moving sand layers */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/40 to-transparent animate-sandstorm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-300/30 to-transparent animate-sandstorm" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-300/35 to-transparent animate-sandstorm" style={{ animationDelay: '3s' }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/25 to-transparent animate-sandstorm" style={{ animationDelay: '4.5s' }} />
+        
+        {/* Swirling sand particles */}
+        {Array.from({ length: 30 }).map((_, i) => (
+          <div
+            key={`storm-${i}`}
+            className="absolute bg-amber-300/70 rounded-full animate-sand-blow"
+            style={{
+              top: `${10 + (i * 2.5) % 70}%`,
+              left: '-20px',
+              width: `${2 + (i % 4)}px`,
+              height: `${1 + (i % 3)}px`,
+              animationDelay: `${(i * 0.2) % 4}s`,
+              animationDuration: `${2 + (i % 3)}s`,
+            }}
+          />
+        ))}
+      </div>
       
       {/* Blowing sand particles */}
       {sandParticles.map((sp, i) => (

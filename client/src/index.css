@@ -125,8 +125,23 @@
 }
 
 @keyframes sandstorm {
-  0% { opacity: 0.3; transform: translateX(-100%); }
-  100% { opacity: 0.1; transform: translateX(100%); }
+  0% { opacity: 0.5; transform: translateX(-100%); }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; transform: translateX(100%); }
+}
+
+@keyframes sand-blow {
+  0% { 
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translateX(110vw) translateY(-20px);
+    opacity: 0;
+  }
 }
 
 @keyframes snowfall {
