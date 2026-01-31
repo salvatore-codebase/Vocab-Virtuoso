@@ -311,60 +311,48 @@ function ForestScene() {
       </div>
       
       {/* Walking Bear */}
-      <div className="absolute bottom-24 animate-bear">
-        <div className="relative w-28 h-20">
+      <div className="absolute bottom-24 left-4 z-10 animate-bear">
+        <div className="relative w-24 h-16">
           {/* Shadow */}
-          <div className="absolute bottom-0 left-4 w-20 h-2 bg-black/20 rounded-full blur-sm" />
+          <div className="absolute bottom-0 left-2 w-16 h-2 bg-black/20 rounded-full blur-sm" />
           
           {/* Back legs */}
-          <div className="absolute bottom-0 left-4 w-4 h-7 bg-gradient-to-b from-amber-700 to-amber-800 rounded-b-lg" />
-          <div className="absolute bottom-0 left-9 w-4 h-6 bg-gradient-to-b from-amber-800 to-amber-900 rounded-b-lg" />
+          <div className="absolute bottom-0 left-2 w-3 h-5 bg-amber-800 rounded-b-md" />
+          <div className="absolute bottom-0 left-6 w-3 h-4 bg-amber-900 rounded-b-md" />
           
-          {/* Body - main torso with shoulder hump */}
-          <div className="absolute bottom-5 left-2 w-18 h-10 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 rounded-[50%]" />
-          {/* Shoulder hump (grizzly characteristic) */}
-          <div className="absolute bottom-12 left-12 w-6 h-4 bg-amber-600 rounded-full" />
-          {/* Belly lighter area */}
-          <div className="absolute bottom-5 left-6 w-10 h-5 bg-amber-600/50 rounded-full" />
+          {/* Body */}
+          <div className="absolute bottom-3 left-0 w-16 h-9 bg-amber-700 rounded-full" />
+          {/* Shoulder hump */}
+          <div className="absolute bottom-9 left-8 w-5 h-3 bg-amber-600 rounded-full" />
           
           {/* Front legs */}
-          <div className="absolute bottom-0 right-6 w-4 h-8 bg-gradient-to-b from-amber-700 to-amber-800 rounded-b-lg" />
-          <div className="absolute bottom-0 right-1 w-4 h-7 bg-gradient-to-b from-amber-800 to-amber-900 rounded-b-lg" />
+          <div className="absolute bottom-0 left-12 w-3 h-6 bg-amber-800 rounded-b-md" />
+          <div className="absolute bottom-0 left-16 w-3 h-5 bg-amber-900 rounded-b-md" />
           
           {/* Neck */}
-          <div className="absolute bottom-10 right-2 w-6 h-5 bg-amber-700 rounded-full" />
+          <div className="absolute bottom-7 left-14 w-5 h-4 bg-amber-700 rounded-full" />
           
           {/* Head */}
-          <div className="absolute bottom-8 -right-2 w-10 h-8 bg-gradient-to-br from-amber-600 to-amber-700 rounded-[60%_60%_50%_50%]">
+          <div className="absolute bottom-6 left-16 w-8 h-7 bg-amber-600 rounded-full">
             {/* Ears */}
-            <div className="absolute -top-1.5 left-1 w-3 h-3 bg-amber-700 rounded-full border-2 border-amber-800">
+            <div className="absolute -top-1 left-0.5 w-2.5 h-2.5 bg-amber-700 rounded-full">
               <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 bg-amber-500 rounded-full" />
             </div>
-            <div className="absolute -top-1.5 right-1 w-3 h-3 bg-amber-700 rounded-full border-2 border-amber-800">
+            <div className="absolute -top-1 right-1 w-2.5 h-2.5 bg-amber-700 rounded-full">
               <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 bg-amber-500 rounded-full" />
             </div>
-            {/* Forehead */}
-            <div className="absolute top-1 left-2 w-6 h-3 bg-amber-600 rounded-full" />
-            {/* Snout/muzzle */}
-            <div className="absolute bottom-0.5 right-0 w-5 h-4 bg-gradient-to-r from-amber-500 to-amber-400 rounded-[40%_60%_60%_40%]">
+            {/* Snout */}
+            <div className="absolute bottom-1 right-0 w-4 h-3 bg-amber-500 rounded-r-full rounded-l-md">
               {/* Nose */}
-              <div className="absolute top-0.5 right-0.5 w-2 h-1.5 bg-stone-900 rounded-md" />
-              {/* Mouth line */}
-              <div className="absolute bottom-1 right-1 w-2 h-0.5 bg-amber-700 rounded-full" />
+              <div className="absolute top-0.5 right-0.5 w-1.5 h-1 bg-stone-900 rounded-sm" />
             </div>
             {/* Eyes */}
-            <div className="absolute top-2.5 left-2 w-1.5 h-1.5 bg-stone-900 rounded-full">
-              <div className="absolute top-0 left-0.5 w-0.5 h-0.5 bg-white rounded-full" />
-            </div>
-            <div className="absolute top-2.5 right-3 w-1.5 h-1.5 bg-stone-900 rounded-full">
-              <div className="absolute top-0 left-0.5 w-0.5 h-0.5 bg-white rounded-full" />
-            </div>
-            {/* Brow ridge */}
-            <div className="absolute top-1.5 left-1.5 w-7 h-1 bg-amber-800/50 rounded-full" />
+            <div className="absolute top-2 left-1.5 w-1 h-1 bg-stone-900 rounded-full" />
+            <div className="absolute top-2 right-2.5 w-1 h-1 bg-stone-900 rounded-full" />
           </div>
           
           {/* Tail */}
-          <div className="absolute bottom-11 left-0 w-3 h-2.5 bg-amber-700 rounded-full" />
+          <div className="absolute bottom-8 -left-1 w-2 h-2 bg-amber-700 rounded-full" />
         </div>
       </div>
     </>

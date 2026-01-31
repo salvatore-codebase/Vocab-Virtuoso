@@ -203,8 +203,8 @@
 }
 
 @keyframes bear-walk {
-  0% { transform: translateX(-120px); }
-  100% { transform: translateX(calc(100vw + 120px)); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw - 100px)); }
 }
 
-.animate-bear { animation: bear-walk 25s linear infinite; }
+.animate-bear { animation: bear-walk 20s ease-in-out infinite alternate; }
