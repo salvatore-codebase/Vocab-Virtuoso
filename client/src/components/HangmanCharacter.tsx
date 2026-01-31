@@ -56,7 +56,7 @@ export function HangmanCharacter({ livesLost, maxLives, difficulty }: HangmanCha
   };
 
   return (
-    <div className="relative w-full h-full animate-sway origin-top scale-90" style={{ transformOrigin: "50% -15px" }}>
+    <div className="relative w-full h-full animate-sway origin-top scale-100" style={{ transformOrigin: "50% -15px" }}>
       <AnimatePresence>
         {/* HEAD */}
         {parts.head && (
