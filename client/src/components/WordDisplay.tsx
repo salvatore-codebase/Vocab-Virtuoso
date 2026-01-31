@@ -8,9 +8,10 @@ interface WordDisplayProps {
 
 export function WordDisplay({ word, guessedLetters, revealed }: WordDisplayProps) {
   const letters = word.split('');
+  const hasMultipleWords = word.includes(' ');
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 md:gap-4 my-8">
+    <div className={`flex justify-center gap-2 md:gap-3 my-8 ${hasMultipleWords ? 'flex-wrap' : 'flex-nowrap'}`}>
       {letters.map((letter, index) => {
         const isGuessed = guessedLetters.has(letter.toLowerCase());
         const isSpace = letter === ' ';
