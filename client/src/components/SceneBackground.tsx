@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { BACKGROUNDS, ThemeId } from "@/hooks/use-game";
 
 interface SceneBackgroundProps {
@@ -6,7 +6,17 @@ interface SceneBackgroundProps {
   children: ReactNode;
 }
 
+function seededRandom(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
 function CityScene() {
+  const windowLights = useMemo(() => ({
+    building2: Array.from({ length: 20 }).map((_, i) => seededRandom(i + 100) > 0.3),
+    building4: Array.from({ length: 15 }).map((_, i) => seededRandom(i + 200) > 0.4),
+  }), []);
+
   return (
     <>
       {/* Sky with sun */}
@@ -25,8 +35,8 @@ function CityScene() {
         {/* Building 2 */}
         <div className="absolute bottom-0 left-[15%] w-28 h-64 bg-slate-600 rounded-t-md">
           <div className="grid grid-cols-4 gap-1 p-2 pt-4">
-            {Array.from({ length: 20 }).map((_, i) => (
-              <div key={i} className={`w-3 h-4 rounded-sm ${Math.random() > 0.3 ? 'bg-yellow-100/70' : 'bg-slate-800'}`} />
+            {windowLights.building2.map((isLit, i) => (
+              <div key={i} className={`w-3 h-4 rounded-sm ${isLit ? 'bg-yellow-100/70' : 'bg-slate-800'}`} />
             ))}
           </div>
         </div>
@@ -41,8 +51,8 @@ function CityScene() {
         {/* Building 4 */}
         <div className="absolute bottom-0 right-[25%] w-24 h-56 bg-slate-700 rounded-t-md">
           <div className="grid grid-cols-3 gap-1 p-2 pt-4">
-            {Array.from({ length: 15 }).map((_, i) => (
-              <div key={i} className={`w-4 h-5 rounded-sm ${Math.random() > 0.4 ? 'bg-orange-100/60' : 'bg-slate-900'}`} />
+            {windowLights.building4.map((isLit, i) => (
+              <div key={i} className={`w-4 h-5 rounded-sm ${isLit ? 'bg-orange-100/60' : 'bg-slate-900'}`} />
             ))}
           </div>
         </div>
@@ -108,6 +118,24 @@ function CityScene() {
   );
 }
 
+function Seagull({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
+  const scale = size === 'lg' ? 1.5 : size === 'sm' ? 0.7 : 1;
+  return (
+    <div style={{ transform: `scale(${scale})` }} className="relative w-8 h-4">
+      {/* Body */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-2 bg-white rounded-full" />
+      {/* Head */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-2 h-2 bg-white rounded-full" />
+      {/* Beak */}
+      <div className="absolute top-1/2 right-[-3px] -translate-y-1/2 w-0 h-0 border-t-[2px] border-b-[2px] border-l-[4px] border-transparent border-l-orange-400" />
+      {/* Left wing */}
+      <div className="absolute top-0 left-1 w-3 h-1.5 bg-gray-600 rounded-t-full origin-bottom animate-[wing-flap_0.5s_ease-in-out_infinite]" />
+      {/* Right wing */}
+      <div className="absolute top-0 left-4 w-3 h-1.5 bg-gray-600 rounded-t-full origin-bottom animate-[wing-flap_0.5s_ease-in-out_infinite_0.1s]" />
+    </div>
+  );
+}
+
 function BeachScene() {
   return (
     <>
@@ -151,15 +179,15 @@ function BeachScene() {
         </div>
       </div>
       
-      {/* Seagulls */}
+      {/* Seagulls - CSS based */}
       <div className="absolute top-20 animate-seagull" style={{ animationDelay: '0s' }}>
-        <div className="text-2xl">🐦</div>
+        <Seagull size="lg" />
       </div>
       <div className="absolute top-32 animate-seagull" style={{ animationDelay: '4s' }}>
-        <div className="text-xl">🐦</div>
+        <Seagull size="md" />
       </div>
       <div className="absolute top-16 animate-seagull" style={{ animationDelay: '8s' }}>
-        <div className="text-lg">🐦</div>
+        <Seagull size="sm" />
       </div>
       
       {/* Palm tree */}
@@ -178,6 +206,20 @@ function BeachScene() {
 }
 
 function ForestScene() {
+  const fireflies = useMemo(() => 
+    Array.from({ length: 12 }).map((_, i) => ({
+      top: 30 + seededRandom(i * 10) * 40,
+      left: 10 + seededRandom(i * 20) * 80,
+      delay: seededRandom(i * 30) * 4,
+    })), []);
+
+  const leaves = useMemo(() => 
+    Array.from({ length: 6 }).map((_, i) => ({
+      left: 10 + seededRandom(i * 50) * 80,
+      delay: seededRandom(i * 60) * 10,
+      color: ['#f59e0b', '#ef4444', '#eab308', '#f97316'][Math.floor(seededRandom(i * 70) * 4)],
+    })), []);
+
   return (
     <>
       {/* Sun peeking through */}
@@ -206,27 +248,27 @@ function ForestScene() {
       </div>
       
       {/* Fireflies */}
-      {Array.from({ length: 12 }).map((_, i) => (
+      {fireflies.map((ff, i) => (
         <div
           key={i}
           className="absolute w-2 h-2 bg-yellow-300 rounded-full blur-sm animate-firefly"
           style={{
-            top: `${30 + Math.random() * 40}%`,
-            left: `${10 + Math.random() * 80}%`,
-            animationDelay: `${Math.random() * 4}s`,
+            top: `${ff.top}%`,
+            left: `${ff.left}%`,
+            animationDelay: `${ff.delay}s`,
           }}
         />
       ))}
       
       {/* Falling leaves */}
-      {Array.from({ length: 6 }).map((_, i) => (
+      {leaves.map((leaf, i) => (
         <div
           key={i}
           className="absolute w-3 h-3 rounded-full animate-leaf"
           style={{
-            left: `${10 + Math.random() * 80}%`,
-            animationDelay: `${Math.random() * 10}s`,
-            backgroundColor: ['#f59e0b', '#ef4444', '#eab308', '#f97316'][Math.floor(Math.random() * 4)],
+            left: `${leaf.left}%`,
+            animationDelay: `${leaf.delay}s`,
+            backgroundColor: leaf.color,
           }}
         />
       ))}
@@ -250,6 +292,13 @@ function ForestScene() {
 }
 
 function WildWestScene() {
+  const dustParticles = useMemo(() =>
+    Array.from({ length: 8 }).map((_, i) => ({
+      top: 40 + seededRandom(i * 15) * 30,
+      left: seededRandom(i * 25) * 100,
+      delay: seededRandom(i * 35) * 5,
+    })), []);
+
   return (
     <>
       {/* Dusty sun */}
@@ -302,7 +351,7 @@ function WildWestScene() {
         <div className="w-8 h-8 rounded-full border-4 border-amber-700 opacity-70" />
       </div>
       <div className="absolute bottom-32 animate-tumbleweed" style={{ animationDelay: '5s' }}>
-        <div className="w-6 h-6 rounded-full border-3 border-amber-600 opacity-60" />
+        <div className="w-6 h-6 rounded-full border-[3px] border-amber-600 opacity-60" />
       </div>
       
       {/* Sandstorm dust */}
@@ -310,14 +359,14 @@ function WildWestScene() {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-300/15 to-transparent animate-sandstorm" style={{ animationDelay: '4s' }} />
       
       {/* Dust particles */}
-      {Array.from({ length: 8 }).map((_, i) => (
+      {dustParticles.map((dp, i) => (
         <div
           key={i}
           className="absolute w-1 h-1 bg-amber-300/50 rounded-full animate-drift-medium"
           style={{
-            top: `${40 + Math.random() * 30}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
+            top: `${dp.top}%`,
+            left: `${dp.left}%`,
+            animationDelay: `${dp.delay}s`,
           }}
         />
       ))}
@@ -326,6 +375,13 @@ function WildWestScene() {
 }
 
 function SnowScene() {
+  const snowflakes = useMemo(() =>
+    Array.from({ length: 25 }).map((_, i) => ({
+      left: seededRandom(i * 5) * 100,
+      delay: seededRandom(i * 8) * 8,
+      duration: 6 + seededRandom(i * 12) * 4,
+    })), []);
+
   return (
     <>
       {/* Pale winter sun */}
@@ -374,14 +430,14 @@ function SnowScene() {
       </div>
       
       {/* Falling snowflakes */}
-      {Array.from({ length: 25 }).map((_, i) => (
+      {snowflakes.map((sf, i) => (
         <div
           key={i}
           className="absolute w-2 h-2 bg-white rounded-full animate-snowfall opacity-80"
           style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 8}s`,
-            animationDuration: `${6 + Math.random() * 4}s`,
+            left: `${sf.left}%`,
+            animationDelay: `${sf.delay}s`,
+            animationDuration: `${sf.duration}s`,
           }}
         />
       ))}
@@ -394,30 +450,44 @@ function SnowScene() {
 }
 
 function SpaceScene() {
+  const stars = useMemo(() =>
+    Array.from({ length: 40 }).map((_, i) => ({
+      top: seededRandom(i * 3) * 80,
+      left: seededRandom(i * 7) * 100,
+      delay: seededRandom(i * 11) * 3,
+    })), []);
+
+  const largeStars = useMemo(() =>
+    Array.from({ length: 8 }).map((_, i) => ({
+      top: seededRandom(i * 13) * 70,
+      left: seededRandom(i * 17) * 100,
+      delay: seededRandom(i * 19) * 2,
+    })), []);
+
   return (
     <>
       {/* Stars - twinkling */}
-      {Array.from({ length: 40 }).map((_, i) => (
+      {stars.map((star, i) => (
         <div
           key={i}
           className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
           style={{
-            top: `${Math.random() * 80}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 3}s`,
+            top: `${star.top}%`,
+            left: `${star.left}%`,
+            animationDelay: `${star.delay}s`,
           }}
         />
       ))}
       
       {/* Larger stars */}
-      {Array.from({ length: 8 }).map((_, i) => (
+      {largeStars.map((star, i) => (
         <div
           key={i}
           className="absolute w-2 h-2 bg-white rounded-full animate-twinkle blur-[1px]"
           style={{
-            top: `${Math.random() * 70}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 2}s`,
+            top: `${star.top}%`,
+            left: `${star.left}%`,
+            animationDelay: `${star.delay}s`,
           }}
         />
       ))}

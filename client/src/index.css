@@ -196,3 +196,8 @@
 .animate-drift-slow { animation: drift-slow 20s ease-in-out infinite; }
 .animate-drift-medium { animation: drift-medium 15s ease-in-out infinite; }
 .animate-beachball { animation: beachball-roll 5s ease-in-out infinite; }
+
+@keyframes wing-flap {
+  0%, 100% { transform: scaleY(1) rotate(-5deg); }
+  50% { transform: scaleY(0.6) rotate(10deg); }
+}
