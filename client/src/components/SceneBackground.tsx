@@ -311,7 +311,7 @@ function ForestScene() {
       </div>
       
       {/* Walking Deer */}
-      <div className="absolute bottom-24 z-10 animate-deer">
+      <div className="absolute bottom-20 z-10 animate-deer">
         <div className="relative" style={{ width: '75px', height: '65px' }}>
           {/* Shadow on ground */}
           <div className="absolute -bottom-1 left-4 bg-black/20 rounded-full blur-md" style={{ width: '45px', height: '5px' }} />
