@@ -409,7 +409,6 @@ function EgyptScene() {
       {/* Great Pyramid */}
       <div className="absolute bottom-28 left-[15%]">
         <div className="w-0 h-0 border-l-[60px] border-r-[60px] border-b-[80px] border-transparent border-b-amber-600" />
-        <div className="absolute top-[20px] left-[-20px] w-0 h-0 border-l-[20px] border-r-[20px] border-b-[60px] border-transparent border-b-amber-700/50" />
       </div>
       
       {/* Medium Pyramid */}
@@ -422,20 +421,35 @@ function EgyptScene() {
         <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-amber-600/80" />
       </div>
       
-      {/* Sphinx */}
-      <div className="absolute bottom-28 right-[20%]">
-        {/* Body */}
-        <div className="w-20 h-8 bg-amber-600 rounded-r-lg relative">
-          {/* Head */}
-          <div className="absolute -top-6 -left-2 w-8 h-10 bg-amber-500 rounded-t-lg">
-            {/* Headdress */}
-            <div className="absolute -top-2 left-0 w-8 h-4 bg-amber-700 rounded-t-md" />
-            {/* Face */}
-            <div className="absolute top-4 left-2 w-1 h-1 bg-amber-900 rounded-full" />
-            <div className="absolute top-4 right-2 w-1 h-1 bg-amber-900 rounded-full" />
+      {/* Sphinx - lion body with human head */}
+      <div className="absolute bottom-28 right-[18%]">
+        {/* Lion body - laying down */}
+        <div className="relative" style={{ width: '70px', height: '35px' }}>
+          {/* Back haunches */}
+          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-amber-700 to-amber-600 rounded-t-full" style={{ width: '20px', height: '18px' }} />
+          {/* Main body */}
+          <div className="absolute bottom-0 left-4 bg-gradient-to-b from-amber-500 to-amber-600 rounded-t-lg" style={{ width: '40px', height: '14px' }} />
+          {/* Front chest - raised */}
+          <div className="absolute bottom-0 bg-gradient-to-t from-amber-600 to-amber-500 rounded-t-lg" style={{ left: '35px', width: '18px', height: '22px' }} />
+          {/* Front paws extended */}
+          <div className="absolute bottom-0 bg-amber-700 rounded-r-md" style={{ left: '45px', width: '25px', height: '5px' }} />
+          
+          {/* Neck */}
+          <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ bottom: '18px', left: '42px', width: '12px', height: '14px', borderRadius: '4px 4px 0 0' }} />
+          
+          {/* Human head */}
+          <div className="absolute bg-gradient-to-b from-amber-400 to-amber-500" style={{ bottom: '28px', left: '40px', width: '16px', height: '14px', borderRadius: '50% 50% 40% 40%' }}>
+            {/* Nemes headdress sides */}
+            <div className="absolute bg-amber-600" style={{ top: '4px', left: '-3px', width: '5px', height: '12px', borderRadius: '2px' }} />
+            <div className="absolute bg-amber-600" style={{ top: '4px', right: '-3px', width: '5px', height: '12px', borderRadius: '2px' }} />
+            {/* Headdress top */}
+            <div className="absolute bg-amber-700" style={{ top: '-2px', left: '2px', width: '12px', height: '6px', borderRadius: '4px 4px 0 0' }} />
+            {/* Face features */}
+            <div className="absolute bg-amber-800 rounded-full" style={{ top: '5px', left: '4px', width: '2px', height: '2px' }} />
+            <div className="absolute bg-amber-800 rounded-full" style={{ top: '5px', right: '4px', width: '2px', height: '2px' }} />
+            {/* Nose */}
+            <div className="absolute bg-amber-600" style={{ top: '7px', left: '50%', transform: 'translateX(-50%)', width: '2px', height: '3px', borderRadius: '1px' }} />
           </div>
-          {/* Front paws */}
-          <div className="absolute bottom-0 left-6 w-12 h-2 bg-amber-700 rounded-r-full" />
         </div>
       </div>
       
