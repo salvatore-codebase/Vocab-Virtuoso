@@ -311,75 +311,73 @@ function ForestScene() {
       </div>
       
       {/* Walking Deer */}
-      <div className="absolute bottom-24 left-4 z-10 animate-bear">
-        <div className="relative" style={{ width: '80px', height: '70px' }}>
+      <div className="absolute bottom-24 z-10 animate-deer">
+        <div className="relative" style={{ width: '75px', height: '65px' }}>
           {/* Shadow on ground */}
-          <div className="absolute -bottom-1 left-6 bg-black/20 rounded-full blur-md" style={{ width: '50px', height: '6px' }} />
+          <div className="absolute -bottom-1 left-4 bg-black/20 rounded-full blur-md" style={{ width: '45px', height: '5px' }} />
           
           {/* Hind legs - thin and elegant */}
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800" style={{ left: '12px', width: '6px', height: '28px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1.5 h-2 bg-amber-900 rounded-b-sm" />
+          <div className="absolute bottom-0 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800" style={{ left: '8px', width: '5px', height: '24px', borderRadius: '3px' }}>
+            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-900 rounded-b-sm" />
           </div>
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900" style={{ left: '20px', width: '5px', height: '25px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1.5 h-2 bg-amber-950 rounded-b-sm" />
+          <div className="absolute bottom-0 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900" style={{ left: '15px', width: '4px', height: '21px', borderRadius: '3px' }}>
+            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-950 rounded-b-sm" />
           </div>
           
           {/* Body - sleek and oval */}
-          <div className="absolute bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700 rounded-full" style={{ bottom: '22px', left: '8px', width: '45px', height: '22px' }} />
+          <div className="absolute bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700 rounded-full" style={{ bottom: '18px', left: '5px', width: '40px', height: '20px' }} />
           
           {/* White belly patch */}
-          <div className="absolute bg-amber-100/60 rounded-full" style={{ bottom: '22px', left: '18px', width: '25px', height: '10px' }} />
+          <div className="absolute bg-amber-100/50 rounded-full" style={{ bottom: '18px', left: '14px', width: '22px', height: '8px' }} />
           
           {/* Front legs */}
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800" style={{ left: '42px', width: '6px', height: '30px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1.5 h-2 bg-amber-900 rounded-b-sm" />
+          <div className="absolute bottom-0 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800" style={{ left: '35px', width: '5px', height: '26px', borderRadius: '3px' }}>
+            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-900 rounded-b-sm" />
           </div>
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900" style={{ left: '50px', width: '5px', height: '27px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1.5 h-2 bg-amber-950 rounded-b-sm" />
+          <div className="absolute bottom-0 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900" style={{ left: '42px', width: '4px', height: '23px', borderRadius: '3px' }}>
+            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-950 rounded-b-sm" />
           </div>
           
-          {/* Neck - long and elegant */}
-          <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ bottom: '38px', left: '45px', width: '12px', height: '20px', borderRadius: '40% 60% 50% 50%', transform: 'rotate(-15deg)' }} />
+          {/* Neck - connects body to head */}
+          <div className="absolute bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-500" style={{ bottom: '32px', left: '38px', width: '14px', height: '18px', borderRadius: '50% 50% 40% 40%', transform: 'rotate(-20deg)', transformOrigin: 'bottom center' }} />
           
-          {/* Head */}
-          <div className="absolute bg-gradient-to-br from-amber-500 to-amber-600" style={{ bottom: '52px', left: '50px', width: '20px', height: '16px', borderRadius: '50% 50% 45% 45%' }}>
+          {/* Head - positioned to connect with neck */}
+          <div className="absolute bg-gradient-to-br from-amber-500 to-amber-600" style={{ bottom: '44px', left: '48px', width: '18px', height: '14px', borderRadius: '50% 50% 45% 45%' }}>
             {/* Left ear - large and pointed */}
-            <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ top: '-8px', left: '0px', width: '7px', height: '12px', borderRadius: '40% 60% 20% 20%', transform: 'rotate(-20deg)' }}>
-              <div className="absolute bg-pink-200/50 rounded-full" style={{ top: '3px', left: '2px', width: '3px', height: '6px' }} />
+            <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ top: '-7px', left: '-1px', width: '6px', height: '10px', borderRadius: '40% 60% 20% 20%', transform: 'rotate(-25deg)' }}>
+              <div className="absolute bg-pink-200/50 rounded-full" style={{ top: '2px', left: '1.5px', width: '2px', height: '5px' }} />
             </div>
             {/* Right ear */}
-            <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ top: '-8px', right: '2px', width: '7px', height: '12px', borderRadius: '40% 60% 20% 20%', transform: 'rotate(10deg)' }}>
-              <div className="absolute bg-pink-200/50 rounded-full" style={{ top: '3px', left: '2px', width: '3px', height: '6px' }} />
+            <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ top: '-6px', right: '1px', width: '6px', height: '10px', borderRadius: '40% 60% 20% 20%', transform: 'rotate(15deg)' }}>
+              <div className="absolute bg-pink-200/50 rounded-full" style={{ top: '2px', left: '1.5px', width: '2px', height: '5px' }} />
             </div>
             {/* Snout/muzzle */}
-            <div className="absolute bg-gradient-to-r from-amber-400 to-amber-300" style={{ bottom: '0px', right: '-6px', width: '12px', height: '8px', borderRadius: '30% 70% 60% 40%' }}>
+            <div className="absolute bg-gradient-to-r from-amber-400 to-amber-300" style={{ bottom: '1px', right: '-5px', width: '10px', height: '7px', borderRadius: '30% 70% 60% 40%' }}>
               {/* Nose */}
-              <div className="absolute bg-stone-800 rounded-full" style={{ top: '1px', right: '1px', width: '4px', height: '3px' }} />
+              <div className="absolute bg-stone-800 rounded-full" style={{ top: '1px', right: '1px', width: '3px', height: '2.5px' }} />
             </div>
             {/* Eye */}
-            <div className="absolute bg-stone-900 rounded-full" style={{ top: '5px', left: '4px', width: '4px', height: '5px' }}>
-              <div className="absolute bg-white rounded-full" style={{ top: '1px', left: '1px', width: '1.5px', height: '1.5px' }} />
+            <div className="absolute bg-stone-900 rounded-full" style={{ top: '4px', left: '3px', width: '3px', height: '4px' }}>
+              <div className="absolute bg-white rounded-full" style={{ top: '0.5px', left: '0.5px', width: '1px', height: '1px' }} />
             </div>
-            {/* White face marking */}
-            <div className="absolute bg-amber-100/40 rounded-full" style={{ top: '8px', right: '2px', width: '8px', height: '6px' }} />
           </div>
           
-          {/* Antlers */}
-          <div className="absolute" style={{ bottom: '66px', left: '52px' }}>
+          {/* Antlers - positioned on head */}
+          <div className="absolute" style={{ bottom: '56px', left: '50px' }}>
             {/* Left antler */}
-            <div className="absolute bg-amber-800" style={{ left: '0px', bottom: '0px', width: '3px', height: '12px', borderRadius: '2px', transform: 'rotate(-15deg)' }}>
-              <div className="absolute bg-amber-700" style={{ top: '2px', left: '-4px', width: '6px', height: '2px', borderRadius: '2px', transform: 'rotate(-45deg)' }} />
-              <div className="absolute bg-amber-700" style={{ top: '6px', left: '-3px', width: '5px', height: '2px', borderRadius: '2px', transform: 'rotate(-30deg)' }} />
+            <div className="absolute bg-amber-800" style={{ left: '0px', bottom: '0px', width: '2.5px', height: '10px', borderRadius: '2px', transform: 'rotate(-15deg)' }}>
+              <div className="absolute bg-amber-700" style={{ top: '2px', left: '-3px', width: '5px', height: '2px', borderRadius: '2px', transform: 'rotate(-45deg)' }} />
+              <div className="absolute bg-amber-700" style={{ top: '5px', left: '-2px', width: '4px', height: '2px', borderRadius: '2px', transform: 'rotate(-30deg)' }} />
             </div>
             {/* Right antler */}
-            <div className="absolute bg-amber-800" style={{ left: '10px', bottom: '0px', width: '3px', height: '10px', borderRadius: '2px', transform: 'rotate(15deg)' }}>
-              <div className="absolute bg-amber-700" style={{ top: '2px', right: '-4px', width: '5px', height: '2px', borderRadius: '2px', transform: 'rotate(45deg)' }} />
-              <div className="absolute bg-amber-700" style={{ top: '5px', right: '-3px', width: '4px', height: '2px', borderRadius: '2px', transform: 'rotate(30deg)' }} />
+            <div className="absolute bg-amber-800" style={{ left: '8px', bottom: '0px', width: '2.5px', height: '8px', borderRadius: '2px', transform: 'rotate(15deg)' }}>
+              <div className="absolute bg-amber-700" style={{ top: '2px', right: '-3px', width: '4px', height: '2px', borderRadius: '2px', transform: 'rotate(45deg)' }} />
+              <div className="absolute bg-amber-700" style={{ top: '4px', right: '-2px', width: '3px', height: '2px', borderRadius: '2px', transform: 'rotate(30deg)' }} />
             </div>
           </div>
           
           {/* White tail */}
-          <div className="absolute bg-amber-100 rounded-full" style={{ bottom: '35px', left: '4px', width: '8px', height: '6px' }} />
+          <div className="absolute bg-amber-100 rounded-full" style={{ bottom: '30px', left: '2px', width: '6px', height: '5px' }} />
         </div>
       </div>
     </>
