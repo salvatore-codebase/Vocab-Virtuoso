@@ -421,44 +421,27 @@ function EgyptScene() {
         <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-amber-600/80" />
       </div>
       
-      {/* Sphinx - lion body with human head */}
-      <div className="absolute bottom-28 right-[18%]">
-        {/* Lion body - laying down */}
-        <div className="relative" style={{ width: '70px', height: '35px' }}>
-          {/* Back haunches */}
-          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-amber-700 to-amber-600 rounded-t-full" style={{ width: '20px', height: '18px' }} />
-          {/* Main body */}
-          <div className="absolute bottom-0 left-4 bg-gradient-to-b from-amber-500 to-amber-600 rounded-t-lg" style={{ width: '40px', height: '14px' }} />
-          {/* Front chest - raised */}
-          <div className="absolute bottom-0 bg-gradient-to-t from-amber-600 to-amber-500 rounded-t-lg" style={{ left: '35px', width: '18px', height: '22px' }} />
-          {/* Front paws extended */}
-          <div className="absolute bottom-0 bg-amber-700 rounded-r-md" style={{ left: '45px', width: '25px', height: '5px' }} />
-          
-          {/* Neck */}
-          <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ bottom: '18px', left: '42px', width: '12px', height: '14px', borderRadius: '4px 4px 0 0' }} />
-          
-          {/* Human head */}
-          <div className="absolute bg-gradient-to-b from-amber-400 to-amber-500" style={{ bottom: '28px', left: '40px', width: '16px', height: '14px', borderRadius: '50% 50% 40% 40%' }}>
-            {/* Nemes headdress sides */}
-            <div className="absolute bg-amber-600" style={{ top: '4px', left: '-3px', width: '5px', height: '12px', borderRadius: '2px' }} />
-            <div className="absolute bg-amber-600" style={{ top: '4px', right: '-3px', width: '5px', height: '12px', borderRadius: '2px' }} />
-            {/* Headdress top */}
-            <div className="absolute bg-amber-700" style={{ top: '-2px', left: '2px', width: '12px', height: '6px', borderRadius: '4px 4px 0 0' }} />
-            {/* Face features */}
-            <div className="absolute bg-amber-800 rounded-full" style={{ top: '5px', left: '4px', width: '2px', height: '2px' }} />
-            <div className="absolute bg-amber-800 rounded-full" style={{ top: '5px', right: '4px', width: '2px', height: '2px' }} />
-            {/* Nose */}
-            <div className="absolute bg-amber-600" style={{ top: '7px', left: '50%', transform: 'translateX(-50%)', width: '2px', height: '3px', borderRadius: '1px' }} />
+      {/* Sphinx - simplified silhouette */}
+      <div className="absolute bottom-28 right-[15%]">
+        <div className="relative" style={{ width: '80px', height: '50px' }}>
+          {/* Laying lion body */}
+          <div className="absolute bottom-0 bg-amber-600 rounded-lg" style={{ left: '0', width: '50px', height: '16px' }} />
+          {/* Back curve */}
+          <div className="absolute bottom-3 left-0 bg-amber-600 rounded-full" style={{ width: '16px', height: '20px' }} />
+          {/* Upright chest/torso */}
+          <div className="absolute bottom-0 bg-amber-500 rounded-t-lg" style={{ left: '32px', width: '20px', height: '28px' }} />
+          {/* Extended front paws */}
+          <div className="absolute bottom-0 bg-amber-700 rounded-sm" style={{ left: '42px', width: '30px', height: '6px' }} />
+          {/* Head */}
+          <div className="absolute bg-amber-500 rounded-t-lg" style={{ bottom: '26px', left: '35px', width: '16px', height: '18px' }}>
+            {/* Headdress flaps */}
+            <div className="absolute bg-amber-700 rounded-b-sm" style={{ top: '6px', left: '-4px', width: '6px', height: '14px' }} />
+            <div className="absolute bg-amber-700 rounded-b-sm" style={{ top: '6px', right: '-4px', width: '6px', height: '14px' }} />
+            {/* Face */}
+            <div className="absolute bg-amber-800 rounded-full" style={{ top: '8px', left: '4px', width: '2px', height: '2px' }} />
+            <div className="absolute bg-amber-800 rounded-full" style={{ top: '8px', right: '4px', width: '2px', height: '2px' }} />
           </div>
         </div>
-      </div>
-      
-      {/* Palm tree oasis */}
-      <div className="absolute bottom-28 right-[8%]">
-        <div className="w-3 h-16 bg-gradient-to-r from-amber-800 to-amber-700 rounded-sm" />
-        <div className="absolute -top-6 -left-5 w-14 h-6 bg-green-600 rounded-full rotate-[-20deg]" />
-        <div className="absolute -top-4 left-0 w-12 h-5 bg-green-500 rounded-full rotate-[15deg]" />
-        <div className="absolute -top-7 -right-3 w-10 h-5 bg-green-700 rounded-full rotate-[35deg]" />
       </div>
       
       {/* Sandstorm wind effect */}
@@ -480,12 +463,6 @@ function EgyptScene() {
           }}
         />
       ))}
-      
-      {/* Hieroglyphic decorative elements (distant) */}
-      <div className="absolute bottom-32 left-[70%] opacity-30">
-        <div className="w-1 h-6 bg-amber-800" />
-        <div className="w-3 h-1 bg-amber-800 -mt-3 ml-1" />
-      </div>
     </>
   );
 }
