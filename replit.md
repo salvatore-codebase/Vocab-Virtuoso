@@ -42,9 +42,17 @@ Preferred communication style: Simple, everyday language.
 
 ### Game Logic
 - Three difficulty levels affecting lives: Easy (8), Medium (6), Hard (4)
-- Language support for English and Italian words
+- Easy mode includes hat and scarf accessories that fall off first
+- Language support for English and Italian words (50 words total across categories)
 - Themed backgrounds selectable from six options (city, beach, forest, wild-west, snow, space)
+- Inverted hangman mechanics: character starts fully assembled, body parts fall off on wrong guesses
 - Hangman character built with CSS/SVG elements, animated with Framer Motion
+
+### Gallows Architecture
+- HangmanCharacter is integrated inside Gallows component for proper rope/noose anchoring
+- Rope and character sway together with shared animation container
+- Wood texture uses CSS gradients and grain lines for realistic appearance
+- Character position is relative to rope, ensuring alignment across viewports
 
 ## External Dependencies
 
