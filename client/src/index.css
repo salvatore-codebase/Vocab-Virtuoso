@@ -219,5 +219,5 @@
   50% { transform: rotate(-15deg); }
 }
 
-.animate-leg-front { animation: leg-front 0.5s ease-in-out infinite; transform-origin: top center; }
-.animate-leg-back { animation: leg-back 0.5s ease-in-out infinite; transform-origin: top center; }
+.animate-leg-front { animation: leg-front 1s ease-in-out infinite; transform-origin: top center; }
+.animate-leg-back { animation: leg-back 1s ease-in-out infinite; transform-origin: top center; }
