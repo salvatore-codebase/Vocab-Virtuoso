@@ -316,12 +316,16 @@ function ForestScene() {
           {/* Shadow on ground */}
           <div className="absolute -bottom-1 left-4 bg-black/20 rounded-full blur-md" style={{ width: '45px', height: '5px' }} />
           
-          {/* Hind legs - thin and elegant */}
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800" style={{ left: '8px', width: '5px', height: '24px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-900 rounded-b-sm" />
+          {/* Hind legs - thin and elegant, animated */}
+          <div className="absolute animate-leg-back" style={{ bottom: '18px', left: '8px', width: '5px', height: '24px' }}>
+            <div className="bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 w-full h-full" style={{ borderRadius: '3px' }}>
+              <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-900 rounded-b-sm" />
+            </div>
           </div>
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900" style={{ left: '15px', width: '4px', height: '21px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-950 rounded-b-sm" />
+          <div className="absolute animate-leg-front" style={{ bottom: '18px', left: '15px', width: '4px', height: '21px' }}>
+            <div className="bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900 w-full h-full" style={{ borderRadius: '3px' }}>
+              <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-950 rounded-b-sm" />
+            </div>
           </div>
           
           {/* Body - sleek and oval */}
@@ -330,12 +334,16 @@ function ForestScene() {
           {/* White belly patch */}
           <div className="absolute bg-amber-100/50 rounded-full" style={{ bottom: '18px', left: '14px', width: '22px', height: '8px' }} />
           
-          {/* Front legs */}
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800" style={{ left: '35px', width: '5px', height: '26px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-900 rounded-b-sm" />
+          {/* Front legs - animated */}
+          <div className="absolute animate-leg-front" style={{ bottom: '18px', left: '35px', width: '5px', height: '26px' }}>
+            <div className="bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 w-full h-full" style={{ borderRadius: '3px' }}>
+              <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-900 rounded-b-sm" />
+            </div>
           </div>
-          <div className="absolute bottom-0 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900" style={{ left: '42px', width: '4px', height: '23px', borderRadius: '3px' }}>
-            <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-950 rounded-b-sm" />
+          <div className="absolute animate-leg-back" style={{ bottom: '18px', left: '42px', width: '4px', height: '23px' }}>
+            <div className="bg-gradient-to-b from-amber-700 via-amber-800 to-amber-900 w-full h-full" style={{ borderRadius: '3px' }}>
+              <div className="absolute bottom-0 left-0.5 w-1 h-1.5 bg-amber-950 rounded-b-sm" />
+            </div>
           </div>
           
           {/* Neck - upright, connects body to head */}

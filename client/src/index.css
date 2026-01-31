@@ -203,9 +203,21 @@
 }
 
 @keyframes deer-walk {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(calc(100vw - 120px)); }
-  100% { transform: translateX(0); }
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100vw); }
 }
 
-.animate-deer { animation: deer-walk 30s ease-in-out infinite; }
+.animate-deer { animation: deer-walk 20s linear infinite; }
+
+@keyframes leg-front {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes leg-back {
+  0%, 100% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+.animate-leg-front { animation: leg-front 0.5s ease-in-out infinite; transform-origin: top center; }
+.animate-leg-back { animation: leg-back 0.5s ease-in-out infinite; transform-origin: top center; }
