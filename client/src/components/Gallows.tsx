@@ -82,7 +82,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
       >
         {/* Main rope - thick braided look */}
         <div 
-          className="w-3 h-14 rounded-sm mx-auto"
+          className="w-3 h-18 rounded-sm mx-auto"
           style={{
             background: "linear-gradient(90deg, #8B6914 0%, #D4A84B 30%, #C4983B 50%, #B8922F 70%, #8B6914 100%)",
             boxShadow: "inset 1px 0 2px rgba(255,255,255,0.3), inset -1px 0 2px rgba(0,0,0,0.3), 2px 2px 4px rgba(0,0,0,0.3)"
@@ -100,7 +100,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
         </div>
         
         {/* Double Knot at bottom of rope */}
-        <div className="absolute top-[50px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="absolute top-[66px] left-1/2 -translate-x-1/2 flex flex-col items-center">
           {/* Upper knot */}
           <div 
             className="w-5 h-4 rounded-full"
@@ -127,7 +127,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
         </div>
         
         {/* HANGMAN CHARACTER - raised so upper back is at bottom of rope/knots */}
-        <div className="absolute top-[38px] left-1/2 -translate-x-1/2">
+        <div className="absolute top-[54px] left-1/2 -translate-x-1/2">
           <HangmanCharacter 
             livesLost={livesLost}
             maxLives={maxLives}
