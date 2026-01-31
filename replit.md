@@ -58,7 +58,7 @@ Preferred communication style: Simple, everyday language.
 Six fully animated cartoon-style backgrounds in `client/src/components/SceneBackground.tsx`:
 1. **City** - Buildings with lit windows, walking people, driving cars, drifting clouds
 2. **Beach** - Ocean with waves, palm tree, beachball, sand crabs, CSS seagulls with wing-flap animation
-3. **Forest** - Layered trees, glowing fireflies, falling leaves, mushrooms, walking bear crossing the screen
+3. **Forest** - Layered trees, glowing fireflies, falling leaves, mushrooms, walking deer with antlers crossing the screen
 4. **Egyptian Desert** - Pyramids, Sphinx, palm tree oasis, sand dunes, blowing sand with wind effects
 5. **Snow** - Pine trees with snow caps, snowman, falling snowflakes, snowy hills
 6. **Space** - Twinkling stars, moon with craters, Saturn-like planet, shooting stars, nebula glow
