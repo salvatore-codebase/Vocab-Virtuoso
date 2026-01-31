@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
+import { HangmanCharacter } from "./HangmanCharacter";
 
 interface GallowsProps {
   className?: string;
+  livesLost?: number;
+  maxLives?: number;
+  difficulty?: "easy" | "medium" | "hard";
 }
 
-export function Gallows({ className = "" }: GallowsProps) {
+export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficulty = "medium" }: GallowsProps) {
   return (
-    <div className={`relative w-64 h-96 ${className}`}>
+    <div className={`relative w-64 h-[420px] ${className}`}>
       {/* Base - thick wooden plank */}
       <div 
         className="absolute bottom-0 left-0 w-full h-8 rounded-lg shadow-xl"
@@ -44,7 +48,7 @@ export function Gallows({ className = "" }: GallowsProps) {
       
       {/* Top Beam - horizontal wooden beam */}
       <div 
-        className="absolute top-2 left-6 w-44 h-6 rounded-r-md shadow-lg"
+        className="absolute top-2 left-6 w-48 h-6 rounded-r-md shadow-lg"
         style={{
           background: "linear-gradient(180deg, #A0522D 0%, #8B4513 40%, #654321 100%)",
           boxShadow: "inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.3)"
@@ -66,11 +70,11 @@ export function Gallows({ className = "" }: GallowsProps) {
         }}
       />
       
-      {/* ROPE - thicker and more visible */}
+      {/* ROPE AND CHARACTER CONTAINER - anchored together */}
       <motion.div 
         className="absolute top-6 origin-top"
         style={{ 
-          left: "176px",
+          left: "184px",
           transformOrigin: "top center" 
         }}
         animate={{ rotate: [-1, 1, -1] }}
@@ -78,7 +82,7 @@ export function Gallows({ className = "" }: GallowsProps) {
       >
         {/* Main rope - thick braided look */}
         <div 
-          className="w-3 h-16 rounded-sm"
+          className="w-3 h-20 rounded-sm mx-auto"
           style={{
             background: "linear-gradient(90deg, #8B6914 0%, #D4A84B 30%, #C4983B 50%, #B8922F 70%, #8B6914 100%)",
             boxShadow: "inset 1px 0 2px rgba(255,255,255,0.3), inset -1px 0 2px rgba(0,0,0,0.3), 2px 2px 4px rgba(0,0,0,0.3)"
@@ -93,25 +97,29 @@ export function Gallows({ className = "" }: GallowsProps) {
             <div className="absolute top-9 left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
             <div className="absolute top-11 left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
             <div className="absolute top-[52px] left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
+            <div className="absolute top-[60px] left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
+            <div className="absolute top-[68px] left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
           </div>
         </div>
         
-        {/* Noose Loop - larger and more visible */}
+        {/* Noose Loop */}
         <div 
-          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-10 rounded-full translate-y-full"
-          style={{
-            border: "4px solid transparent",
-            borderImage: "linear-gradient(180deg, #D4A84B 0%, #8B6914 100%) 1",
-            background: "transparent"
-          }}
-        />
-        <div 
-          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-10 rounded-full translate-y-full border-4"
+          className="absolute top-[76px] left-1/2 -translate-x-1/2 w-10 h-6 rounded-b-full border-4"
           style={{
             borderColor: "#B8922F",
+            borderTop: "none",
             boxShadow: "inset 1px 1px 2px rgba(255,255,255,0.2), 1px 1px 3px rgba(0,0,0,0.3)"
           }}
         />
+        
+        {/* HANGMAN CHARACTER - anchored directly to rope */}
+        <div className="absolute top-[82px] left-1/2 -translate-x-1/2">
+          <HangmanCharacter 
+            livesLost={livesLost}
+            maxLives={maxLives}
+            difficulty={difficulty}
+          />
+        </div>
       </motion.div>
     </div>
   );

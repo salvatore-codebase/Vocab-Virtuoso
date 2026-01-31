@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRandomWord, ThemeId } from "@/hooks/use-game";
 import { SceneBackground } from "@/components/SceneBackground";
 import { Gallows } from "@/components/Gallows";
-import { HangmanCharacter } from "@/components/HangmanCharacter";
 import { WordDisplay } from "@/components/WordDisplay";
 import { Keyboard } from "@/components/Keyboard";
 import { Button } from "@/components/ui/button";
@@ -104,21 +103,15 @@ export default function Game() {
         </header>
 
         {/* Main Game Area */}
-        <div className="flex flex-row items-start justify-between w-full max-w-7xl flex-1 px-4 relative min-h-0 mt-8">
+        <div className="flex flex-row items-start justify-between w-full max-w-7xl flex-1 px-4 relative min-h-0 pt-6">
           
-          {/* Left: Gallows Area */}
-          <div className="relative flex-shrink-0 z-10 mt-4">
-            <div className="relative">
-               <Gallows />
-               {/* Position character at the noose - rope is at left:176px, noose ends at ~top:96px */}
-               <div className="absolute top-[100px] left-[164px] w-0 h-0">
-                 <HangmanCharacter 
-                   livesLost={livesLost} 
-                   maxLives={MAX_LIVES}
-                   difficulty={diff}
-                 />
-               </div>
-            </div>
+          {/* Left: Gallows Area - character is now integrated inside Gallows component */}
+          <div className="relative flex-shrink-0 z-10">
+            <Gallows 
+              livesLost={livesLost}
+              maxLives={MAX_LIVES}
+              difficulty={diff}
+            />
           </div>
 
           {/* Right: Clue Card & Word */}
