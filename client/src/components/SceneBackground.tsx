@@ -339,10 +339,10 @@ function ForestScene() {
           </div>
           
           {/* Neck - connects body to head */}
-          <div className="absolute bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-500" style={{ bottom: '32px', left: '38px', width: '14px', height: '18px', borderRadius: '50% 50% 40% 40%', transform: 'rotate(-20deg)', transformOrigin: 'bottom center' }} />
+          <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ bottom: '30px', left: '36px', width: '10px', height: '22px', borderRadius: '5px 5px 3px 3px', transform: 'rotate(-25deg)', transformOrigin: 'bottom center' }} />
           
           {/* Head - positioned to connect with neck */}
-          <div className="absolute bg-gradient-to-br from-amber-500 to-amber-600" style={{ bottom: '44px', left: '48px', width: '18px', height: '14px', borderRadius: '50% 50% 45% 45%' }}>
+          <div className="absolute bg-gradient-to-br from-amber-500 to-amber-600" style={{ bottom: '42px', left: '42px', width: '18px', height: '14px', borderRadius: '50% 50% 45% 45%' }}>
             {/* Left ear - large and pointed */}
             <div className="absolute bg-gradient-to-t from-amber-600 to-amber-500" style={{ top: '-7px', left: '-1px', width: '6px', height: '10px', borderRadius: '40% 60% 20% 20%', transform: 'rotate(-25deg)' }}>
               <div className="absolute bg-pink-200/50 rounded-full" style={{ top: '2px', left: '1.5px', width: '2px', height: '5px' }} />
@@ -363,7 +363,7 @@ function ForestScene() {
           </div>
           
           {/* Antlers - positioned on head */}
-          <div className="absolute" style={{ bottom: '56px', left: '50px' }}>
+          <div className="absolute" style={{ bottom: '54px', left: '44px' }}>
             {/* Left antler */}
             <div className="absolute bg-amber-800" style={{ left: '0px', bottom: '0px', width: '2.5px', height: '10px', borderRadius: '2px', transform: 'rotate(-15deg)' }}>
               <div className="absolute bg-amber-700" style={{ top: '2px', left: '-3px', width: '5px', height: '2px', borderRadius: '2px', transform: 'rotate(-45deg)' }} />

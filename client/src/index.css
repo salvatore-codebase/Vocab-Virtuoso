@@ -203,8 +203,9 @@
 }
 
 @keyframes deer-walk {
-  0% { transform: translateX(-100px); }
-  100% { transform: translateX(100vw); }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(calc(100vw - 120px)); }
+  100% { transform: translateX(0); }
 }
 
-.animate-deer { animation: deer-walk 25s linear infinite; }
+.animate-deer { animation: deer-walk 30s ease-in-out infinite; }
