@@ -10,7 +10,7 @@ interface GallowsProps {
 
 export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficulty = "medium" }: GallowsProps) {
   return (
-    <div className={`relative w-64 h-[420px] ${className}`}>
+    <div className={`relative w-[230px] h-[378px] ${className}`}>
       {/* Base - thick wooden plank */}
       <div 
         className="absolute bottom-0 left-0 w-full h-8 rounded-lg shadow-xl"
@@ -29,7 +29,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
       
       {/* Vertical Post - tall wooden beam */}
       <div 
-        className="absolute bottom-6 left-8 w-8 rounded-t-md shadow-lg"
+        className="absolute bottom-6 left-7 w-7 rounded-t-md shadow-lg"
         style={{
           height: "calc(100% - 24px)",
           background: "linear-gradient(90deg, #654321 0%, #8B4513 30%, #A0522D 50%, #8B4513 70%, #654321 100%)",
@@ -48,7 +48,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
       
       {/* Top Beam - horizontal wooden beam */}
       <div 
-        className="absolute top-2 left-6 w-48 h-6 rounded-r-md shadow-lg"
+        className="absolute top-2 left-6 w-[172px] h-5 rounded-r-md shadow-lg"
         style={{
           background: "linear-gradient(180deg, #A0522D 0%, #8B4513 40%, #654321 100%)",
           boxShadow: "inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.3)"
@@ -63,7 +63,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
       
       {/* Angled Support Brace */}
       <div 
-        className="absolute top-6 left-10 w-16 h-4 origin-left -rotate-45 rounded-sm"
+        className="absolute top-5 left-9 w-14 h-3 origin-left -rotate-45 rounded-sm"
         style={{
           background: "linear-gradient(180deg, #8B4513 0%, #654321 100%)",
           boxShadow: "inset 0 1px 2px rgba(255,255,255,0.1)"
@@ -72,9 +72,9 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
       
       {/* ROPE AND CHARACTER CONTAINER - anchored together */}
       <motion.div 
-        className="absolute top-6 origin-top"
+        className="absolute top-5 origin-top"
         style={{ 
-          left: "184px",
+          left: "166px",
           transformOrigin: "top center" 
         }}
         animate={{ rotate: [-1, 1, -1] }}
@@ -82,7 +82,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
       >
         {/* Main rope - thick braided look */}
         <div 
-          className="w-3 h-20 rounded-sm mx-auto"
+          className="w-3 h-14 rounded-sm mx-auto"
           style={{
             background: "linear-gradient(90deg, #8B6914 0%, #D4A84B 30%, #C4983B 50%, #B8922F 70%, #8B6914 100%)",
             boxShadow: "inset 1px 0 2px rgba(255,255,255,0.3), inset -1px 0 2px rgba(0,0,0,0.3), 2px 2px 4px rgba(0,0,0,0.3)"
@@ -96,15 +96,12 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
             <div className="absolute top-7 left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
             <div className="absolute top-9 left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
             <div className="absolute top-11 left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
-            <div className="absolute top-[52px] left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
-            <div className="absolute top-[60px] left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
-            <div className="absolute top-[68px] left-0.5 w-2 h-1 border-b border-amber-700/40 rounded-full" />
           </div>
         </div>
         
         {/* Noose Loop */}
         <div 
-          className="absolute top-[76px] left-1/2 -translate-x-1/2 w-10 h-6 rounded-b-full border-4"
+          className="absolute top-[52px] left-1/2 -translate-x-1/2 w-9 h-5 rounded-b-full border-4"
           style={{
             borderColor: "#B8922F",
             borderTop: "none",
@@ -113,7 +110,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
         />
         
         {/* HANGMAN CHARACTER - anchored directly to rope */}
-        <div className="absolute top-[82px] left-1/2 -translate-x-1/2">
+        <div className="absolute top-[58px] left-1/2 -translate-x-1/2">
           <HangmanCharacter 
             livesLost={livesLost}
             maxLives={maxLives}
