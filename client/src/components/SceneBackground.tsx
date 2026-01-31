@@ -225,27 +225,49 @@ function ForestScene() {
       {/* Sun peeking through */}
       <div className="absolute top-4 right-[30%] w-16 h-16 bg-yellow-200 rounded-full blur-xl opacity-60" />
       
-      {/* Trees - layered for depth */}
-      <div className="absolute bottom-0 w-full">
-        {/* Background trees */}
-        <div className="absolute bottom-20 left-[5%] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[60px] border-transparent border-b-green-900/80" />
-        <div className="absolute bottom-20 left-[15%] w-0 h-0 border-l-[25px] border-r-[25px] border-b-[50px] border-transparent border-b-green-800/70" />
-        <div className="absolute bottom-20 right-[10%] w-0 h-0 border-l-[35px] border-r-[35px] border-b-[70px] border-transparent border-b-green-900/80" />
-        <div className="absolute bottom-20 right-[25%] w-0 h-0 border-l-[28px] border-r-[28px] border-b-[55px] border-transparent border-b-green-800/70" />
-        
-        {/* Ground */}
-        <div className="absolute bottom-0 w-full h-20 bg-gradient-to-t from-green-900 to-green-800" />
-        
-        {/* Foreground trees */}
-        <div className="absolute bottom-20 left-[25%]">
-          <div className="w-6 h-16 bg-amber-800 mx-auto" />
-          <div className="w-0 h-0 border-l-[40px] border-r-[40px] border-b-[80px] border-transparent border-b-green-700 -mt-4" />
-        </div>
-        <div className="absolute bottom-20 right-[35%]">
-          <div className="w-5 h-14 bg-amber-700 mx-auto" />
-          <div className="w-0 h-0 border-l-[35px] border-r-[35px] border-b-[70px] border-transparent border-b-green-600 -mt-4" />
-        </div>
+      {/* Ground */}
+      <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-green-900 to-green-800" />
+      
+      {/* Background trees (darker, smaller) */}
+      <div className="absolute bottom-24 left-[3%] flex flex-col items-center">
+        <div className="w-0 h-0 border-l-[25px] border-r-[25px] border-b-[50px] border-transparent border-b-green-950" />
+        <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[45px] border-transparent border-b-green-950 -mt-3" />
+        <div className="w-4 h-8 bg-amber-950 -mt-1" />
       </div>
+      <div className="absolute bottom-24 left-[12%] flex flex-col items-center">
+        <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-b-[40px] border-transparent border-b-green-900" />
+        <div className="w-0 h-0 border-l-[25px] border-r-[25px] border-b-[35px] border-transparent border-b-green-900 -mt-2" />
+        <div className="w-3 h-6 bg-amber-900 -mt-1" />
+      </div>
+      <div className="absolute bottom-24 right-[8%] flex flex-col items-center">
+        <div className="w-0 h-0 border-l-[28px] border-r-[28px] border-b-[55px] border-transparent border-b-green-950" />
+        <div className="w-0 h-0 border-l-[32px] border-r-[32px] border-b-[50px] border-transparent border-b-green-950 -mt-3" />
+        <div className="w-5 h-10 bg-amber-950 -mt-1" />
+      </div>
+      <div className="absolute bottom-24 right-[22%] flex flex-col items-center">
+        <div className="w-0 h-0 border-l-[22px] border-r-[22px] border-b-[45px] border-transparent border-b-green-900" />
+        <div className="w-0 h-0 border-l-[26px] border-r-[26px] border-b-[38px] border-transparent border-b-green-900 -mt-2" />
+        <div className="w-3 h-7 bg-amber-900 -mt-1" />
+      </div>
+      
+      {/* Foreground trees (brighter, larger) */}
+      <div className="absolute bottom-24 left-[28%] flex flex-col items-center">
+        <div className="w-0 h-0 border-l-[35px] border-r-[35px] border-b-[70px] border-transparent border-b-green-700" />
+        <div className="w-0 h-0 border-l-[42px] border-r-[42px] border-b-[60px] border-transparent border-b-green-700 -mt-4" />
+        <div className="w-0 h-0 border-l-[48px] border-r-[48px] border-b-[55px] border-transparent border-b-green-700 -mt-3" />
+        <div className="w-6 h-12 bg-amber-800 -mt-2" />
+      </div>
+      <div className="absolute bottom-24 right-[32%] flex flex-col items-center">
+        <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[60px] border-transparent border-b-green-600" />
+        <div className="w-0 h-0 border-l-[36px] border-r-[36px] border-b-[50px] border-transparent border-b-green-600 -mt-3" />
+        <div className="w-0 h-0 border-l-[42px] border-r-[42px] border-b-[45px] border-transparent border-b-green-600 -mt-2" />
+        <div className="w-5 h-10 bg-amber-700 -mt-2" />
+      </div>
+      
+      {/* Small bush/shrubs */}
+      <div className="absolute bottom-20 left-[45%] w-12 h-6 bg-green-800 rounded-full" />
+      <div className="absolute bottom-18 left-[48%] w-8 h-5 bg-green-700 rounded-full" />
+      <div className="absolute bottom-20 right-[45%] w-10 h-5 bg-green-800 rounded-full" />
       
       {/* Fireflies */}
       {fireflies.map((ff, i) => (
