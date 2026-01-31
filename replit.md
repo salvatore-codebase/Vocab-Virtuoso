@@ -54,6 +54,17 @@ Preferred communication style: Simple, everyday language.
 - Wood texture uses CSS gradients and grain lines for realistic appearance
 - Character position is relative to rope, ensuring alignment across viewports
 
+### Animated Background Scenes
+Six fully animated cartoon-style backgrounds in `client/src/components/SceneBackground.tsx`:
+1. **City** - Buildings with lit windows, walking people, driving cars, drifting clouds
+2. **Beach** - Ocean with waves, palm tree, beachball, sand crabs, CSS seagulls with wing-flap animation
+3. **Forest** - Layered trees, glowing fireflies, falling leaves, mushrooms
+4. **Wild West** - Saloon, water tower, cacti, tumbleweeds, sandstorm dust effects
+5. **Snow** - Pine trees with snow caps, snowman, falling snowflakes, snowy hills
+6. **Space** - Twinkling stars, moon with craters, Saturn-like planet, shooting stars, nebula glow
+
+Animation system uses CSS keyframes defined in `client/src/index.css` (20+ animations including walk, drive, wave, crab-walk, seagull-fly, tumbleweed, snowfall, firefly, etc.). Random element positions are memoized with seeded random function for stable layouts.
+
 ## External Dependencies
 
 ### Database
