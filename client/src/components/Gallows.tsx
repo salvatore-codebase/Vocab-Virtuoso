@@ -127,7 +127,7 @@ export function Gallows({ className = "", livesLost = 0, maxLives = 6, difficult
         </div>
         
         {/* HANGMAN CHARACTER - raised so upper back is at bottom of rope/knots */}
-        <div className="absolute top-[46px] left-1/2 -translate-x-1/2">
+        <div className="absolute top-[38px] left-1/2 -translate-x-1/2">
           <HangmanCharacter 
             livesLost={livesLost}
             maxLives={maxLives}
