@@ -91,7 +91,7 @@ export default function Home() {
                   <SelectTrigger className="h-12 rounded-xl border-slate-200 bg-white">
                     <SelectValue placeholder="Select difficulty" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border border-slate-200 shadow-lg">
                     <SelectItem value="easy">Easy (8 Lives + Hints)</SelectItem>
                     <SelectItem value="medium">Medium (6 Lives)</SelectItem>
                     <SelectItem value="hard">Hard (4 Lives)</SelectItem>
