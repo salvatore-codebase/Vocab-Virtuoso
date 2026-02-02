@@ -1,0 +1,1 @@
+A focused language-learning application designed to build strong mental links between concepts and their translations. By combining intuitive illustrations with active recall, the app helps users move beyond simple memorization to true language fluency.
